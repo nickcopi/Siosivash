@@ -1,0 +1,11 @@
+Dependency inverted command and control.
+
+Aameul, the commander and Hethradiah, the controller.
+
+module.getCommands()
+return array of type Command object
+{
+	"type":"exec", // types: exec, ping, who
+	"recipient":"[id]", // if set, and it doesn't match our id, we ignore
+	"command":"ls -al" // if exec is set, we might want this
+}
