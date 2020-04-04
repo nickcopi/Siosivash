@@ -21,8 +21,7 @@ class Controller{
 	async handlePoll(){
 		const commands = await this.communicator.getCommands();
 		commands.forEach(command=>{
-			console.log(command);
-		
+			command.type.evalCommand(command,this.communicator);
 		});
 
 	}
