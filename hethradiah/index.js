@@ -5,8 +5,9 @@ const Communicator = require('./modules/test');
 
 class Controller{
 	constructor(){
-		this.communicator = new Communicator();
 		this.id = this.generateId();
+		this.communicator = new Communicator(this.id);
+		//verify canConnect
 		this.interval = setInterval(()=>{
 			try{
 				this.handlePoll()
@@ -21,6 +22,7 @@ class Controller{
 	async handlePoll(){
 		const commands = await this.communicator.getCommands();
 		commands.forEach(command=>{
+			if(command.recipient && !command.recipient.includes(this.id)) return;
 			command.type.evalCommand(command,this.communicator);
 		});
 

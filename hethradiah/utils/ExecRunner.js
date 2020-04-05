@@ -8,11 +8,15 @@ class ExecRunner{
 			exec(command.command,{
 				timeout:command.timeout*1000,
 				windowsHide:true
-			},(...output)=>{
-				resolve(output);
+			},(error,stdout,stderr)=>{
+				resolve({
+					error,
+					stdout,
+					stderr
+				});
 			});
 		}).then(result=>{
-			console.log(result);
+			communicator.reportExec(result,command);
 		});
 	}
 }
