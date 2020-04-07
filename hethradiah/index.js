@@ -1,6 +1,6 @@
 const Command = require('./utils/Command');
 const config = require('./config.json');
-const Communicator = require('./modules/test');
+const Communicator = require('./modules/googlesheet');
 
 
 class Controller{

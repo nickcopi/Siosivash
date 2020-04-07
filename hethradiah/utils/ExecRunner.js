@@ -12,7 +12,8 @@ class ExecRunner{
 				resolve({
 					error,
 					stdout,
-					stderr
+					stderr,
+					id:communicator.id
 				});
 			});
 		}).then(result=>{
