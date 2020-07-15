@@ -1,4 +1,4 @@
-const Module = require('../../utils/Module');
+const Module = require('../../hethradiah/utils/Module');
 const axios = require('axios');
 const endpoint = 'https://script.google.com/macros/s/AKfycbzSWpfyt_0lHRRoI5D0kHDaB34bVS-55gUQK7UeClxrWzBa6wI/exec';
 module.exports = class GoogleSheet extends Module{

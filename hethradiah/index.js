@@ -1,5 +1,5 @@
 const config = require('./config.json');
-const Communicator = require('./modules/googlesheet');
+const Communicator = require('../modules/googlesheet/hethradiah.js');
 
 
 class Controller{
