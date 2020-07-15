@@ -5,6 +5,7 @@ const Communicator = require('./modules/googlesheet');
 
 class Controller{
 	constructor(){
+		this.oldCommands = [];
 		this.id = this.generateId();
 		this.communicator = new Communicator(this.id);
 		//verify canConnect
@@ -15,15 +16,23 @@ class Controller{
 				console.error(e);
 			}
 		},config.pollDelay*1000);
+		this.handlePoll();
 	}
 	generateId(){
 		return (Math.random() * Math.random()).toString().split('.').join('');
 	}
 	async handlePoll(){
 		const commands = await this.communicator.getCommands();
+		if(!this.runOnce){
+			this.runOnce = true;
+			this.oldCommands = commands.map(command=>command.id);
+			return;
+		}
 		commands.forEach(command=>{
+			if(this.oldCommands.includes(command.id)) return;
+			this.oldCommands.push(command.id);
 			if(command.recipient && !command.recipient.includes(this.id)) return;
-			command.type.evalCommand(command,this.communicator);
+			command.perform.evalCommand(command,this.communicator);
 		});
 
 	}

@@ -1,9 +1,10 @@
-module.exports = class Command{
-	constructor(type,issuer,command,timeout,recipient){
-		this.type = type;
-		this.issuer = issuer;
-		this.recipient = recipient;
+const Message = require('./Message');
+const MessageTypes = require('./MessageTypes');
+module.exports = class Command extends Message{
+	constructor(commandType,issuer,command,timestamp,recipient,timeout){
+		super(MessageTypes.COMMAND_TYPE,issuer,timestamp,recipient);
 		this.command = command;
+		this.commandType = commandType;
 		this.timeout = timeout;
 	}
 }
