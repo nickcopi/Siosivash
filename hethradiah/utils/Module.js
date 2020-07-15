@@ -1,11 +1,11 @@
 module.exports = class Module{
 	constructor(id){
-		this.Command = require('./Command');
-		this.Response = require('./Response');
+		this.Command = require('../../shared/Command');
+		this.Response = require('../../shared/Response');
+		this.MessageTypes = require('../../shared/MessageTypes');
 		this.ExecRunner = require('./ExecRunner');
 		this.SpawnRunner = require('./SpawnRunner');
 		this.WhoRunner = require('./WhoRunner');
-		this.MessageTypes = require('./MessageTypes');
 		this.types = {
 			exec:this.ExecRunner,
 			spawn: this.SpawnRunner,
