@@ -1,7 +1,8 @@
 const config = require('./config.json');
 const Communicator = require('../modules/googlesheet/aameul');
 module.exports = class Receiver{
-	constructor(){
+	constructor(sendResponse){
+		this.sendResponse = sendResponse;
 		this.oldResponses = [];
 		this.id = this.generateId();
 		this.communicator = new Communicator(this.id);
@@ -14,7 +15,7 @@ module.exports = class Receiver{
 			}
 		},config.pollDelay*1000);
 		this.handlePoll();
-		console.log(this.id);
+		//console.log(this.id);
 	}
 	generateId(){
 		return (Math.random() * Math.random()).toString().split('.').join('');
@@ -30,7 +31,7 @@ module.exports = class Receiver{
 			if(this.oldResponses.includes(response.id)) return;
 			this.oldResponses.push(response.id);
 			if(response.recipient && !response.recipient.includes(this.id)) return;
-			console.log(response);
+			this.sendResponse(response);
 		});
 
 	}

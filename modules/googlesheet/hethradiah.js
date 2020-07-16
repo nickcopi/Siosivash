@@ -30,7 +30,7 @@ module.exports = class GoogleSheet extends Module{
 	}
 	async report(body){
 		//constructor(output,issuer,timestamp,recipient,id){
-		const response = new this.Response(body.result,body.command.recipient,Date.now(),[body.command.issuer],body.command.id);
+		const response = new this.Response(body.result,this.id,Date.now(),[body.command.issuer],body.command.id);
 		console.log(response);
 		this.writeRaw(JSON.stringify(response))
 	}

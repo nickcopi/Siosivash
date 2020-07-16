@@ -6,4 +6,8 @@ module.exports = class Message{
 		this.timestamp = timestamp;
 		this.id = id;
 	}
+	generateId(){
+		return (Math.random() * Math.random()).toString().split('.').join('');
+	}
+
 }

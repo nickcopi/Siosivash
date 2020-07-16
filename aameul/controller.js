@@ -4,7 +4,7 @@ const cli = require('./cli');
 
 class Controller{
 	constructor(){
-		this.receiver = new Receiver();
+		this.receiver = new Receiver(this.receiveResponse.bind(this));
 		this.components = [];
 	}
 	registerComponent(component){

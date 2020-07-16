@@ -6,7 +6,8 @@ class WhoRunner{
 	evalCommand(command,communicator){
 		communicator.reportWho({ 
 			platform: process.platform,
-			id:communicator.id
+			id:communicator.id,
+			stdout:`${communicator.id}: ${process.platform}`
 		},command);
 	}
 }
