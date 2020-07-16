@@ -20,6 +20,9 @@ module.exports = class GoogleSheet extends Module{
 		});
 		return responses;
 	}
+	async sendCommand(command){
+		return await this.writeRaw(JSON.stringify(command));
+	}
 	async canConnect(){
 		return true;
 	}

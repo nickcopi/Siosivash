@@ -1,6 +1,6 @@
 const config = require('./config.json');
 const Communicator = require('../modules/googlesheet/aameul');
-class Receiver{
+module.exports = class Receiver{
 	constructor(){
 		this.oldResponses = [];
 		this.id = this.generateId();
@@ -35,5 +35,3 @@ class Receiver{
 
 	}
 }
-
-module.exports = new Receiver();
