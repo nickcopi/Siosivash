@@ -1,5 +1,6 @@
 const Receiver = require('./Receiver');
-const cli = require('./cli');
+const config = require('./config.json');
+const selectedComponent = require(`./modules/${config.module}/`);
 
 
 class Controller{
@@ -19,4 +20,4 @@ class Controller{
 
 }
 const controller = new Controller();
-controller.registerComponent(cli);
+controller.registerComponent(selectedComponent);

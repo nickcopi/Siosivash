@@ -1,3 +1,4 @@
 {
-	"pollDelay":2
+	"pollDelay":2,
+	"module":"cli"
 }

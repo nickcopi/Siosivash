@@ -1,6 +1,6 @@
 const prompt = require('prompt');
-const Component = require('./utils/Component');
-const Command = require('../shared/Command');
+const Component = require('../../utils/Component');
+const Command = require('../../../shared/Command');
 
 
 
