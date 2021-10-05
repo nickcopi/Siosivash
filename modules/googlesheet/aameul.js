@@ -1,6 +1,6 @@
 const axios = require('axios');
 const Module = require('../../aameul/utils/Module');
-const endpoint = 'https://script.google.com/macros/s/AKfycbzSWpfyt_0lHRRoI5D0kHDaB34bVS-55gUQK7UeClxrWzBa6wI/exec';
+const endpoint = 'https://script.google.com/macros/s/AKfycbw3jnX-O9TKh333OH-tvipPHl3diSe_v66q88EEikGu2MQovnYs1a66XcVDywbk1mit/exec';
 module.exports = class GoogleSheet extends Module{
 	async readRaw(){
 		return (await axios.get(endpoint).catch(e=>console.error(e))).data;

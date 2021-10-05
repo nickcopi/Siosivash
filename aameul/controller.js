@@ -1,4 +1,4 @@
-const Receiver = require('./Receiver');
+const Receiver = require('./receiver');
 const config = require('./config.json');
 const selectedComponent = require(`./modules/${config.module}/`);
 
